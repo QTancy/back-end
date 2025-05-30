@@ -1,7 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import tensorflow as tf
-import numpy as np
 
 app = FastAPI(title="API Klasifikasi Teks")
 
@@ -10,7 +9,7 @@ keywords_keys = [
 ]
 idx2label = {i: label for i, label in enumerate(keywords_keys)}
 
-MODEL_PATH = "./app/best_model.h5"
+MODEL_PATH = "./app/final_saved_model.keras"
 try:
     model = tf.keras.models.load_model(MODEL_PATH)
     print("Model berhasil dimuat.")
