@@ -9,6 +9,7 @@ const registerSchema = joi.object({
     password : joi.string().min(8).required()
 });
 
+// fungsi sign Up
 export const signUp = async(req,res) => {
     try {
         const { error } = registerSchema.validate(req.body);
