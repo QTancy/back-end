@@ -8,8 +8,8 @@ const PORT = process.env.PORT;
 
 
 const allowedOrigins = [
-    'https://qtancy.netlify.app/', // Ganti dengan URL Netlify FRONTEND Anda
-    'http://localhost:3000',                 // Untuk pengembangan frontend lokal
+    'https://qtancy.netlify.app', 
+    'http://localhost:3000',                 
     
 ];
 
