@@ -55,8 +55,17 @@ export const signIn = async(req,res) => {
 
         const payload = { user : { id : user.id } };
         const token = jwt.sign(payload,process.env.JWT_SECRET, {expiresIn : '1h'});
+        res.cookie('authToken', token, {
+            httpOnly: true, 
+            secure: process.env.NODE_ENV === 'production', 
+            sameSite: 'Lax', 
+            maxAge: 3600000, 
+            path: '/' 
+        });
 
-        res.json({ token });
+
+        res.status(200).json({ message: 'Login berhasil!', user: { id: user.id, email: user.email, name: user.name } });
+
     } catch ( error ) { 
         console.log('SignIn error:',error.message);
         res.status(500).send('Server Error');
