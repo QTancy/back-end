@@ -4,7 +4,7 @@ import  cors  from 'cors';
 import { router } from './routes/authRoutes.js';
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT;
 
 
 const allowedOrigins = [
