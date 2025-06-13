@@ -57,8 +57,8 @@ export const signIn = async(req,res) => {
         const token = jwt.sign(payload,process.env.JWT_SECRET, {expiresIn : '1h'});
         res.cookie('authToken', token, {
             httpOnly: true, 
-            secure: process.env.NODE_ENV === 'production', 
-            sameSite: 'Lax', 
+            secure: true, 
+            sameSite: 'None', 
             maxAge: 3600000, 
             path: '/' 
         });
