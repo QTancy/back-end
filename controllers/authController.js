@@ -55,14 +55,13 @@ export const signIn = async(req,res) => {
 
         const payload = { user : { id : user.id } };
         const token = jwt.sign(payload,process.env.JWT_SECRET, {expiresIn : '1h'});
-        res.cookie('authToken', token, {
-            httpOnly: true, 
-            secure: true, 
-            sameSite: 'None', 
-            maxAge: 3600000, 
-            path: '/' 
-        });
-
+        // res.cookie('authToken', token, {
+        //     httpOnly: false, 
+        //     secure: true, 
+        //     sameSite: 'None', 
+        //     maxAge: 3600000, 
+        //     path: '/' 
+        // });
 
         res.status(200).json({ message: 'Login berhasil!', user: { id: user.id, email: user.email, name: user.name, token:token } });
     } catch ( error ) { 
